@@ -1,0 +1,126 @@
+{% extends 'project/base.html' %}
+<!--  -->
+
+{% block content %}
+<!--  -->
+{% include 'project/status.html' %}
+
+<br />
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">Search Team Member(TM)</div>
+        <div class="cardbody">
+          <form method="get">
+            {{ clientFilter.form }}
+
+            <button class="btn btn-primary" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">Search Project By(Name/Deadline/Status)</div>
+        <div class="cardbody">
+          <form method="get">
+            {{ projectFilter.form }}
+
+            <button class="btn btn-primary" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h5>TEAM MEMBERS</h5>
+      <hr />
+
+      <div class="card card-body">
+        <a
+          class="btn btn-primary btn-sm btn-block"
+          href="{% url 'create_client' %}"
+          >Register New Team Member</a
+        >
+        <br />
+        <table class="table table-sm">
+          <tr>
+            <th>TM Name</th>
+            <th>Phone Number</th>
+            <th></th>
+          </tr>
+          {% for client in clients %}
+          <tr>
+            <td>{{client.name}}</td>
+            <td>{{client.phone}}</td>
+            <td><a href="{% url 'client' client.id %}">View</a></td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <h5>PROJECTS</h5>
+      <hr />
+
+      <div class="card card-body">
+        <a
+          class="btn btn-primary btn-sm btn-block"
+          href="{% url 'create_project' %}"
+          >Create a New Project</a
+        >
+        <br />
+        <table class="table table-sm">
+          <tr>
+            <th>Project Name</th>
+            <th>TM Name</th>
+            <th>Deadline</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+          </tr>
+          {% for proj in projects %}
+          <tr>
+            <td>{{ proj.name }}</td>
+            <td>{{ proj.client }}</td>
+            <td>{{ proj.deadline }}</td>
+            <td>{{ proj.status }}</td>
+            <td>
+              <a
+                class="btn btn-outline-info btn-sm"
+                href="{% url 'project' proj.id %}"
+                >View</a
+              >
+            </td>
+            <td>
+              <a
+                class="btn btn-primary btn-sm"
+                href="{% url 'update_project' proj.id %}"
+                >Update</a
+              >
+            </td>
+            <td>
+              <a
+                class="btn btn-danger btn-sm"
+                href="{% url 'delete_project' proj.id %}"
+                >Remove</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

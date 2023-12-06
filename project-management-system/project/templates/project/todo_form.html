@@ -1,0 +1,33 @@
+{% extends 'project/base.html' %}
+<!--  -->
+{% load crispy_forms_filters %}
+<!--  -->
+
+{% block content %}
+
+<br />
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="card card-body">
+        <p>Create Task for Project: {{ project.name }}</p>
+        <form action="" method="post">
+          {% csrf_token %}
+          <!--  -->
+          {{ formset.management_form }}
+          <!--  -->
+          {% for form in formset %}
+          <!--  -->
+          {{ form | crispy }}
+          <hr />
+          <!--  -->
+          {% endfor %}
+          <input class="btn btn-sm btn-primary" type="submit" name="Submit" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
