@@ -1,2 +1,3 @@
 # WorkWave
-We are building a web application site that will serve as a versatile work management site for groups or any individual , to assign work to each other, and serve to be a proper work plan and management system for not only a team but the user. 
+# WorkWave
+This is an indiviudal project of mine I worked on to help ease the work flow that teams have to deal with during project sprints and project management. Thus I decided to develop a way for not only teams but individuals to be able to work on their projects and such, as well as monitor work flow, handle tasks, and other activities. Thus my solution was building a web application site that will serve as a versatile work management site for groups or any individual , to assign work to each other, and serve to be a proper work plan and management system for not only a team but the user. 
