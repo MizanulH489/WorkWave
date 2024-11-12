@@ -59,13 +59,4 @@ This project is compatible with Python 3.8 or later.
 
 
 
-for users use open privatge window and use this details tgo test
-
-    http://127.0.0.1:8000/
-username        password
-user1           7776linux
-user2           7776linux
-user3           7776linux
-
-i kep password same for ease of testing
 
